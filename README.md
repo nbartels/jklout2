@@ -5,6 +5,10 @@ This library is work in progress and far from being a real library.
 
 It is a java wrapper for the klout rest api version 2. The API has to be used since january 2013.
 
+Build status
+============
+[![Build Status](https://buildhive.cloudbees.com/job/nbartels/job/jklout2/badge/icon)](https://buildhive.cloudbees.com/job/nbartels/job/jklout2/)
+
 Functionality
 =============
 
