@@ -13,9 +13,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/nbartels/jklout2/issues</url>
+    </issueManagement> 
+       
+    <ciManagement>
+        <system>Buildhive</system>
+        <url>https://buildhive.cloudbees.com/job/nbartels/job/jklout2/</url>
+    </ciManagement>
+        
     <dependencies>
-      
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
