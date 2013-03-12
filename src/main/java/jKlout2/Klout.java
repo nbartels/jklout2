@@ -1,9 +1,9 @@
 package jKlout2;
 
-import de.phpmonkeys.jklout2.types.Influence;
-import de.phpmonkeys.jklout2.types.Score;
-import de.phpmonkeys.jklout2.types.Topic;
-import de.phpmonkeys.jklout2.types.User;
+import jKlout2.types.Influence;
+import jKlout2.types.Score;
+import jKlout2.types.Topic;
+import jKlout2.types.User;
 import java.util.List;
 
 /**

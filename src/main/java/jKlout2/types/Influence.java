@@ -1,4 +1,4 @@
-package de.phpmonkeys.jklout2.types;
+package jKlout2.types;
 
 import java.util.List;
 

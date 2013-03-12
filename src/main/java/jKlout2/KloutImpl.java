@@ -8,11 +8,12 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import jKlout2.types.Influence;
+import jKlout2.types.Score;
+import jKlout2.types.Topic;
+import jKlout2.types.User;
 
-import de.phpmonkeys.jklout2.types.Influence;
-import de.phpmonkeys.jklout2.types.Score;
-import de.phpmonkeys.jklout2.types.Topic;
-import de.phpmonkeys.jklout2.types.User;
+
 
 class KloutImpl implements Klout {
 
@@ -33,6 +34,7 @@ class KloutImpl implements Klout {
         this.gson = new Gson();
     }
 
+    @Override
     public Score getUserScore(String userId) throws KloutException {
         String url = KLOUT_BASE_URL;
         url += USER + "/" + userId + "/" + INFORMATION_SCORE + "?key="
@@ -82,6 +84,7 @@ class KloutImpl implements Klout {
         return topicList;
     }
 
+    @Override
     public Influence getInfluence(String userId) throws KloutException {
         String url = KLOUT_BASE_URL;
         url += USER + "/" + userId + "/" + INFORMATION_INFLUENCE + "?key="

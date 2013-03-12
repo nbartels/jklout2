@@ -1,6 +1,5 @@
 package jKlout2;
 
-import de.phpmonkeys.jklout2.types.Influence;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
