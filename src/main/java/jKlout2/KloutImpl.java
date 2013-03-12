@@ -1,12 +1,6 @@
 package jKlout2;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +14,7 @@ import de.phpmonkeys.jklout2.types.Score;
 import de.phpmonkeys.jklout2.types.Topic;
 import de.phpmonkeys.jklout2.types.User;
 
-public class KloutImpl implements Klout {
+class KloutImpl implements Klout {
 
     private static final String KLOUT_BASE_URL = "http://api.klout.com/v2/";
     private String kloutApiKey;
@@ -34,7 +28,7 @@ public class KloutImpl implements Klout {
     private static final String INFORMATION_SCORE = "score";
     private static Gson gson;
 
-    public KloutImpl(String apiKey) {
+    KloutImpl(String apiKey) {
         this.kloutApiKey = apiKey;
         this.gson = new Gson();
     }
@@ -44,19 +38,13 @@ public class KloutImpl implements Klout {
         url += USER + "/" + userId + "/" + INFORMATION_SCORE + "?key="
                 + this.kloutApiKey;
         try {
-            URL link = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) link.openConnection();
-            if (con.getResponseCode() == 200) {
-                BufferedReader buff = new BufferedReader(new InputStreamReader(
-                        con.getInputStream(), Charset.forName("UTF-8")));
-                String json = readAll(buff);
-                Score s = gson.fromJson(json, Score.class);
-                return s;
-            }
+            HttpConnector connector = new HttpConnector(url);
+            String json = connector.getContent();
+            Score s = gson.fromJson(json, Score.class);
+            return s;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
         }
-        return null;
     }
 
     @Override
@@ -65,19 +53,13 @@ public class KloutImpl implements Klout {
         url += USER + "/" + userId + "?key="
                 + this.kloutApiKey;
         try {
-            URL link = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) link.openConnection();
-            if (con.getResponseCode() == 200) {
-                BufferedReader buff = new BufferedReader(new InputStreamReader(
-                        con.getInputStream(), Charset.forName("UTF-8")));
-                String json = readAll(buff);
-                User s = gson.fromJson(json, User.class);
-                return s;
-            }
+            HttpConnector connector = new HttpConnector(url);
+            String json = connector.getContent();
+            User s = gson.fromJson(json, User.class);
+            return s;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
         }
-        return null;
     }
 
     @Override
@@ -87,17 +69,12 @@ public class KloutImpl implements Klout {
                 + this.kloutApiKey;
         List<Topic> topicList = new ArrayList<Topic>();
         try {
-            URL link = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) link.openConnection();
-            if (con.getResponseCode() == 200) {
-                BufferedReader buff = new BufferedReader(new InputStreamReader(
-                        con.getInputStream(), Charset.forName("UTF-8")));
-                String json = readAll(buff);
-                JsonArray jsonO = new JsonParser().parse(json).getAsJsonArray();
-                for (JsonElement jsonElement : jsonO) {
-                    Topic t = gson.fromJson(jsonElement, Topic.class);
-                    topicList.add(t);
-                }
+            HttpConnector connector = new HttpConnector(url);
+            String json = connector.getContent();
+            JsonArray jsonO = new JsonParser().parse(json).getAsJsonArray();
+            for (JsonElement jsonElement : jsonO) {
+                Topic t = gson.fromJson(jsonElement, Topic.class);
+                topicList.add(t);
             }
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
@@ -110,27 +87,12 @@ public class KloutImpl implements Klout {
         url += USER + "/" + userId + "/" + INFORMATION_INFLUENCE + "?key="
                 + this.kloutApiKey;
         try {
-            URL link = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) link.openConnection();
-            if (con.getResponseCode() == 200) {
-                BufferedReader buff = new BufferedReader(new InputStreamReader(
-                        con.getInputStream(), Charset.forName("UTF-8")));
-                String json = readAll(buff);
-                Influence s = gson.fromJson(json, Influence.class);
-                return s;
-            }
+            HttpConnector connector = new HttpConnector(url);
+            String json = connector.getContent();
+            Influence s = gson.fromJson(json, Influence.class);
+            return s;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
         }
-        return null;
-    }
-
-    private String readAll(Reader rd) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        int cp;
-        while ((cp = rd.read()) != -1) {
-            sb.append((char) cp);
-        }
-        return sb.toString();
     }
 }
