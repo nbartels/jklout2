@@ -10,18 +10,13 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- *
- * @author viego2
- */
 public class TestKlout {
 
     @Test
     public void testShowUser() throws IOException {
-        InputStream is = getClass().getClassLoader().getResourceAsStream("showUser.json");
+        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/showUser.json");
         String myJson = IOUtils.toString(is, "UTF-8");
         Assert.assertNotNull("Could not read json file", myJson);
-
     }
     
 }
