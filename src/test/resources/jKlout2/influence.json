@@ -1,0 +1,176 @@
+{
+    "myInfluencers": [{
+        "entity": {
+            "id": "100768049884337217",
+            "payload": {
+                "kloutId": "100768049884337217",
+                "nick": "JessicaBiel",
+                "score": {
+                    "score": 84.18012106681964,
+                    "bucket": "80-89"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.023016892625378205,
+                    "weekChange": -0.19465224124147085,
+                    "monthChange": 0.2920955951076678
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "37436176667751638",
+            "payload": {
+                "kloutId": "37436176667751638",
+                "nick": "wbpictures",
+                "score": {
+                    "score": 77.98493603525228,
+                    "bucket": "70-79"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.005010946524294013,
+                    "weekChange": -0.00392147480199867,
+                    "monthChange": 4.2727979954277515
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "41939776295123042",
+            "payload": {
+                "kloutId": "41939776295123042",
+                "nick": "fauntleroy",
+                "score": {
+                    "score": 70.75663736076024,
+                    "bucket": "70-79"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.03343866408565077,
+                    "weekChange": -0.12397840623050627,
+                    "monthChange": -1.2704306662920999
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "902675",
+            "payload": {
+                "kloutId": "902675",
+                "nick": "SU2C",
+                "score": {
+                    "score": 70.40895411241047,
+                    "bucket": "70-79"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.2226879533508992,
+                    "weekChange": -0.5684850725091479,
+                    "monthChange": -2.9240288772515157
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "879345",
+            "payload": {
+                "kloutId": "879345",
+                "nick": "brokemogul",
+                "score": {
+                    "score": 70.187185470236,
+                    "bucket": "70-79"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.07257719786989014,
+                    "weekChange": 0.0653264927499464,
+                    "monthChange": 1.3127245196331359
+                }
+            }
+        }
+    }],
+    "myInfluencees": [{
+        "entity": {
+            "id": "120189822723669433",
+            "payload": {
+                "kloutId": "120189822723669433",
+                "nick": "CutieChristyLee",
+                "score": {
+                    "score": 39.61872264545373,
+                    "bucket": "30-39"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.0788027400781317,
+                    "weekChange": -0.5974390677452419,
+                    "monthChange": 5.711517069225877
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "34058476947791600",
+            "payload": {
+                "kloutId": "34058476947791600",
+                "nick": "AmalGee",
+                "score": {
+                    "score": 38.173792578330165,
+                    "bucket": "30-39"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.10379807817287201,
+                    "weekChange": -2.103972745545029,
+                    "monthChange": -1.8758042566377497
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "41095351365245784",
+            "payload": {
+                "kloutId": "41095351365245784",
+                "nick": "lawrencepangit",
+                "score": {
+                    "score": 25.544216589924588,
+                    "bucket": "20-29"
+                },
+                "scoreDeltas": {
+                    "dayChange": -7.296472390336817E-4,
+                    "weekChange": 0.19719964016157832,
+                    "monthChange": -0.9256613358228876
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "34621426900933220",
+            "payload": {
+                "kloutId": "34621426900933220",
+                "nick": "mrsblueb",
+                "score": {
+                    "score": 21.68239917935503,
+                    "bucket": "20-29"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.0014857963726697676,
+                    "weekChange": -1.3424513783318233,
+                    "monthChange": -3.1196643133894213
+                }
+            }
+        }
+    }, {
+        "entity": {
+            "id": "33495526993436298",
+            "payload": {
+                "kloutId": "33495526993436298",
+                "nick": "DaniloBruno07",
+                "score": {
+                    "score": 18.321372756470936,
+                    "bucket": "10-19"
+                },
+                "scoreDeltas": {
+                    "dayChange": -0.0012276681236826903,
+                    "weekChange": -0.006694889013246552,
+                    "monthChange": -0.6943803676701137
+                }
+            }
+        }
+    }],
+    "myInfluencersCount": 15,
+    "myInfluenceesCount": 25
+}
