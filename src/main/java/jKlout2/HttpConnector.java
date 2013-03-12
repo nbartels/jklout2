@@ -12,7 +12,10 @@ public class HttpConnector {
 
     private String url;
 
-    public HttpConnector(String url) {
+    public HttpConnector() {
+    }
+    
+    public void setURL(String url) {
         this.url = url;
     }
 

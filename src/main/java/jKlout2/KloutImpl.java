@@ -13,8 +13,6 @@ import jKlout2.types.Score;
 import jKlout2.types.Topic;
 import jKlout2.types.User;
 
-
-
 class KloutImpl implements Klout {
 
     private static final String KLOUT_BASE_URL = "http://api.klout.com/v2/";
@@ -28,9 +26,11 @@ class KloutImpl implements Klout {
     private static final String INFORMATION_TOPICS = "topics";
     private static final String INFORMATION_SCORE = "score";
     private static Gson gson;
+    private final HttpConnector connector;
 
-    KloutImpl(String apiKey) {
+    KloutImpl(String apiKey, HttpConnector connector) {
         this.kloutApiKey = apiKey;
+        this.connector = connector;
         this.gson = new Gson();
     }
 
@@ -40,7 +40,7 @@ class KloutImpl implements Klout {
         url += USER + "/" + userId + "/" + INFORMATION_SCORE + "?key="
                 + this.kloutApiKey;
         try {
-            HttpConnector connector = new HttpConnector(url);
+            connector.setURL(url);
             String json = connector.getContent();
             Score s = gson.fromJson(json, Score.class);
             return s;
@@ -55,7 +55,7 @@ class KloutImpl implements Klout {
         url += USER + "/" + userId + "?key="
                 + this.kloutApiKey;
         try {
-            HttpConnector connector = new HttpConnector(url);
+            connector.setURL(url);
             String json = connector.getContent();
             User s = gson.fromJson(json, User.class);
             return s;
@@ -71,7 +71,7 @@ class KloutImpl implements Klout {
                 + this.kloutApiKey;
         List<Topic> topicList = new ArrayList<Topic>();
         try {
-            HttpConnector connector = new HttpConnector(url);
+            connector.setURL(url);
             String json = connector.getContent();
             JsonArray jsonO = new JsonParser().parse(json).getAsJsonArray();
             for (JsonElement jsonElement : jsonO) {
@@ -90,7 +90,7 @@ class KloutImpl implements Klout {
         url += USER + "/" + userId + "/" + INFORMATION_INFLUENCE + "?key="
                 + this.kloutApiKey;
         try {
-            HttpConnector connector = new HttpConnector(url);
+            connector.setURL(url);
             String json = connector.getContent();
             Influence s = gson.fromJson(json, Influence.class);
             return s;
