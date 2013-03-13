@@ -4,7 +4,7 @@ public class User {
 
     private String kloutId;
     private String nick;
-    private BaseScore score;
+    private SimpleScore score;
     private ScoreDelta scoreDeltas;
 
     public String getKloutId() {
@@ -23,11 +23,11 @@ public class User {
         this.nick = nick;
     }
 
-    public BaseScore getScore() {
+    public SimpleScore getScore() {
         return score;
     }
 
-    public void setScore(BaseScore score) {
+    public void setScore(SimpleScore score) {
         this.score = score;
     }
 

@@ -1,6 +1,6 @@
 package jKlout2.types;
 
-public class Score extends BaseScore {
+public class Score extends SimpleScore {
 
     private ScoreDelta scoreDelta;
 

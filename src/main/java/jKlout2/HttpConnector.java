@@ -27,10 +27,12 @@ public class HttpConnector {
                     con.getInputStream(), Charset.forName("UTF-8")));
             return readAll(buff);
         } else {
-          return "";  
+            BufferedReader buff = new BufferedReader(new InputStreamReader(
+                    con.getErrorStream(), Charset.forName("UTF-8")));
+            throw new IllegalStateException(readAll(buff));
         }
     }
-
+    
     private String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;

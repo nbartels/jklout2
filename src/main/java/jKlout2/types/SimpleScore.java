@@ -1,6 +1,6 @@
 package jKlout2.types;
 
-public class BaseScore {
+public class SimpleScore {
 
 	private double score; 
 	private String bucket;

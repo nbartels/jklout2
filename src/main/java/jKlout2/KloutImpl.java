@@ -10,6 +10,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import jKlout2.types.Identity;
 import jKlout2.types.Influence;
+import jKlout2.types.KloutError;
+import jKlout2.types.KloutNetwork;
 import jKlout2.types.Score;
 import jKlout2.types.Topic;
 import jKlout2.types.User;
@@ -18,16 +20,16 @@ class KloutImpl implements Klout {
 
     private static final String KLOUT_BASE_URL = "http://api.klout.com/v2/";
     private String kloutApiKey;
+
     private static final String IDENTITY = "identity.json";
     private static final String USER = "user.json";
-    private static final String NETWORK_GOOGLE_PLUS = "gp";
-    private static final String NETWORK_KLOUT = "kw";
-    private static final String NETWORK_TWITTER = "tw";
+    
     private static final String INFORMATION_INFLUENCE = "influence";
     private static final String INFORMATION_TOPICS = "topics";
     private static final String INFORMATION_SCORE = "score";
     private static Gson gson;
     private final HttpConnector connector;
+    
 
     KloutImpl(String apiKey, HttpConnector connector) {
         this.kloutApiKey = apiKey;
@@ -47,6 +49,9 @@ class KloutImpl implements Klout {
             return s;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 
@@ -62,6 +67,9 @@ class KloutImpl implements Klout {
             return s;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 
@@ -81,6 +89,9 @@ class KloutImpl implements Klout {
             }
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
         return topicList;
     }
@@ -97,12 +108,15 @@ class KloutImpl implements Klout {
             return s;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 
-    public Identity getIdentityFromTwitterID(String id) throws KloutException {
+    public Identity getIdentityFromTwitterID(String twitterId) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/tw/" + id + "?key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.TWITTER.getShortName() +"/" + twitterId + "?key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();
@@ -110,12 +124,15 @@ class KloutImpl implements Klout {
             return i;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 
-    public Identity getIdentityFromGooglePlusID(String id) throws KloutException {
+    public Identity getIdentityFromGooglePlusID(String googlePlusId) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/gp/" + id + "?key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.GOOGLE_PLUS.getShortName() + "/" + googlePlusId + "?key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();
@@ -123,12 +140,15 @@ class KloutImpl implements Klout {
             return i;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 
     public Identity getIdentityFromTwitterScreenName(String screenName) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/tw/twitter?screenName=" + screenName + "&key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() + "?screenName=" + screenName + "&key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();
@@ -136,12 +156,15 @@ class KloutImpl implements Klout {
             return i;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 
-    public Identity getIdentityFromKloutID(String kloutID, String targetNetwork) throws KloutException {
+    public Identity getIdentityFromKloutID(String kloutID, KloutNetwork targetNetwork) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/klout/" + kloutID + "/" + targetNetwork + "?key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() +"/" + kloutID + "/" + targetNetwork.getShortName() + "?key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();
@@ -149,6 +172,9 @@ class KloutImpl implements Klout {
             return i;
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
+        } catch (IllegalStateException ex) {
+            KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
+            throw new KloutException(e.getDescription());
         }
     }
 }

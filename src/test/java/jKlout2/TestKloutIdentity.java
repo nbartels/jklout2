@@ -5,6 +5,7 @@
 package jKlout2;
 
 import jKlout2.types.Identity;
+import jKlout2.types.KloutNetwork;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
@@ -83,7 +84,7 @@ public class TestKloutIdentity {
         
         KloutFactory factory = new KloutFactory();
         Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
-        Identity testIdentity = kloutClient.getIdentityFromKloutID("anyid","tw");
+        Identity testIdentity = kloutClient.getIdentityFromKloutID("anyid", KloutNetwork.TWITTER);
         
         // begin with assertions
         Assert.assertEquals("26565946", testIdentity.getId());
