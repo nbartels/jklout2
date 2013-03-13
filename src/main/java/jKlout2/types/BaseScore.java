@@ -2,13 +2,13 @@ package jKlout2.types;
 
 public class BaseScore {
 
-	private float score; 
+	private double score; 
 	private String bucket;
 	
-	public float getScore() {
+	public double getScore() {
 		return score;
 	}
-	public void setScore(float score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 	public String getBucket() {

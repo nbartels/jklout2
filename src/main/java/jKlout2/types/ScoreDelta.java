@@ -1,26 +1,32 @@
 package jKlout2.types;
 
 public class ScoreDelta {
-	
-	public float getDayChange() {
-		return dayChange;
-	}
-	public void setDayChange(float dayChange) {
-		this.dayChange = dayChange;
-	}
-	public float getWeekChange() {
-		return weekChange;
-	}
-	public void setWeekChange(float weekChange) {
-		this.weekChange = weekChange;
-	}
-	public float getMonthChange() {
-		return monthChange;
-	}
-	public void setMonthChange(float monthChange) {
-		this.monthChange = monthChange;
-	}
-	private float dayChange;
-	private float weekChange;
-	private float monthChange;
+
+    private double dayChange;
+    private double weekChange;
+    private double monthChange;
+
+    public double getDayChange() {
+        return dayChange;
+    }
+
+    public void setDayChange(double dayChange) {
+        this.dayChange = dayChange;
+    }
+
+    public double getWeekChange() {
+        return weekChange;
+    }
+
+    public void setWeekChange(double weekChange) {
+        this.weekChange = weekChange;
+    }
+
+    public double getMonthChange() {
+        return monthChange;
+    }
+
+    public void setMonthChange(double monthChange) {
+        this.monthChange = monthChange;
+    }
 }

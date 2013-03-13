@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 public class TestKlout {
+    
+    private static final double DELTA = 1e-15;
 
     @Test
     public void testShowUser() throws IOException, KloutException {
@@ -30,5 +32,13 @@ public class TestKlout {
         
         // begin with assertions
         Assert.assertEquals("jtimberlake", testUser.getNick());
+        Assert.assertEquals("635263", testUser.getKloutId());
+        Assert.assertNotNull(testUser.getScore());
+        Assert.assertEquals(92.8064108888354D, testUser.getScore().getScore(), DELTA);
+        Assert.assertNotNull(testUser.getScoreDeltas());
+        Assert.assertEquals(0.11171073367142981D, testUser.getScoreDeltas().getDayChange(), DELTA);
+        Assert.assertEquals(0.19782863190633293D, testUser.getScoreDeltas().getMonthChange(), DELTA);
+        Assert.assertEquals(0.07298920976049317D, testUser.getScoreDeltas().getWeekChange(), DELTA);
+        
     }
 }
