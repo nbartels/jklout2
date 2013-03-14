@@ -4,6 +4,8 @@
  */
 package jKlout2;
 
+import jKlout2.types.Influence;
+import jKlout2.types.InnerItem;
 import jKlout2.types.Score;
 import jKlout2.types.Topic;
 import jKlout2.types.User;
@@ -82,10 +84,43 @@ public class TestKlout {
         
         // begin with assertions
         Assert.assertEquals(5, topicList.size());
+        // TODO: add more assertions
     }
     
     @Test
     public void testInfluence() throws IOException, KloutException {
-        Assert.assertTrue("Not yet implemented", false); 
+         // load json file into string
+        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/influence.json");
+        String myJson = IOUtils.toString(is, "UTF-8");
+        
+        // HttpConnector mock
+        HttpConnector connector = Mockito.mock(HttpConnector.class);
+        Mockito.when(connector.getContent()).thenReturn(myJson);
+        
+        KloutFactory factory = new KloutFactory();
+        Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
+        Influence testScore = kloutClient.getInfluence("anyid");
+        
+        // begin with assertions
+        Assert.assertEquals(15, testScore.getMyInfluencersCount());
+        Assert.assertEquals(25, testScore.getMyInfluenceesCount());
+        
+        List<InnerItem> influencers = testScore.getMyInfluencers();
+        
+        Assert.assertEquals("100768049884337217", influencers.get(0).getEntity().getId());
+        Assert.assertEquals("37436176667751638", influencers.get(1).getEntity().getId());
+        Assert.assertEquals("41939776295123042", influencers.get(2).getEntity().getId());
+        Assert.assertEquals("902675", influencers.get(3).getEntity().getId());
+        Assert.assertEquals("879345", influencers.get(4).getEntity().getId());
+        
+        List<InnerItem> influencees = testScore.getMyInfluencees();
+        
+        Assert.assertEquals("120189822723669433", influencees.get(0).getEntity().getId());
+        Assert.assertEquals("34058476947791600", influencees.get(1).getEntity().getId());
+        Assert.assertEquals("41095351365245784", influencees.get(2).getEntity().getId());
+        Assert.assertEquals("34621426900933220", influencees.get(3).getEntity().getId());
+        Assert.assertEquals("33495526993436298", influencees.get(4).getEntity().getId());
+
+        // TODO more assertions
     }
 }
