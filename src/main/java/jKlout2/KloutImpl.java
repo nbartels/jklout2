@@ -8,13 +8,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import jKlout2.types.Identity;
-import jKlout2.types.Influence;
-import jKlout2.types.KloutError;
+import jKlout2.model.Identity;
+import jKlout2.model.Influence;
+import jKlout2.model.KloutError;
 import jKlout2.types.KloutNetwork;
-import jKlout2.types.Score;
-import jKlout2.types.Topic;
-import jKlout2.types.User;
+import jKlout2.model.Score;
+import jKlout2.model.Topic;
+import jKlout2.model.User;
 
 class KloutImpl implements Klout {
 

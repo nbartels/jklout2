@@ -4,7 +4,7 @@
  */
 package jKlout2;
 
-import jKlout2.types.Identity;
+import jKlout2.model.Identity;
 import jKlout2.types.KloutNetwork;
 import java.io.IOException;
 import java.io.InputStream;

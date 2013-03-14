@@ -1,4 +1,4 @@
-package jKlout2.types;
+package jKlout2.model;
 
 public class Identity {
 

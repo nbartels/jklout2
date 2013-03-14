@@ -4,11 +4,11 @@
  */
 package jKlout2;
 
-import jKlout2.types.Influence;
-import jKlout2.types.InnerItem;
-import jKlout2.types.Score;
-import jKlout2.types.Topic;
-import jKlout2.types.User;
+import jKlout2.model.Influence;
+import jKlout2.model.InnerItem;
+import jKlout2.model.Score;
+import jKlout2.model.Topic;
+import jKlout2.model.User;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
