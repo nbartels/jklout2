@@ -1,19 +1,24 @@
-jklout2
-=======
+jklout2 - Klout API v2 Java Wrapper
+===================================
 
 This is a java library to use the [Klout REST API V2](http://klout.com/s/developers/v2). 
 
 Build status
-============
+------------
 [![Build Status](https://buildhive.cloudbees.com/job/nbartels/job/jklout2/badge/icon)](https://buildhive.cloudbees.com/job/nbartels/job/jklout2/)
 
 Functionality
-=============
+-------------
 * id mapping is supported
 * influence, topics and score can be retrieved
 
+Dependencies
+------------
+ * [gson library](https://code.google.com/p/google-gson/) to parse the json and generated POJOs
+ * junit4 and [mockito](https://code.google.com/p/mockito/) for unittesting (not needed in productive environment)
+
 Roadmap
-=======
+-------
 
 * ~~add the mapping api (twitter, google plus to kloutid)~~
 * ~~add unittests (incl. property file for the klout id)~~
