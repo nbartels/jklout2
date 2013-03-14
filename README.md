@@ -1,9 +1,7 @@
 jklout2
 =======
 
-This library is work in progress and far from being a real library.
-
-It is a java wrapper for the klout rest api version 2. The API has to be used since january 2013.
+This is a java library to use the [Klout REST API V2](http://klout.com/s/developers/v2). 
 
 Build status
 ============
@@ -11,15 +9,17 @@ Build status
 
 Functionality
 =============
-
-if you have a klout id you can already receive all information for it (influence, score, user and topics)
-
+* id mapping is supported
+* influence, topics and score can be retrieved
 
 Roadmap
 =======
 
-* add the mapping api (twitter, google plus to kloutid)
-* add unittests (incl. property file for the klout id)
-* remove code duplications and move the http connection code to some class
-* add mocking to unittests
-* clean up the tyspe classes (innerEntity is not nice and rather useless)
+* ~~add the mapping api (twitter, google plus to kloutid)~~
+* ~~add unittests (incl. property file for the klout id)~~
+* ~~remove code duplications and move the http connection code to some class~~
+* ~~add mocking to unittests~~
+* clean up the type classes (innerEntity is not nice and rather useless)
+* move type classes to modell package and add some package for classes that are no implementation and no modell
+* add example code snippets
+* add deployment to github in pom.xml (or deployment via buildhive)
