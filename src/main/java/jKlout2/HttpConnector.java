@@ -8,11 +8,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-public class HttpConnector {
+class HttpConnector {
 
     private String url;
 
-    public HttpConnector() {
+    HttpConnector() {
     }
     
     public void setURL(String url) {
