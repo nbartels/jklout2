@@ -25,6 +25,6 @@ Roadmap
 * ~~remove code duplications and move the http connection code to some class~~
 * ~~add mocking to unittests~~
 * clean up the type classes (innerEntity is not nice and rather useless)
-* move type classes to modell package and add some package for classes that are no implementation and no modell
+* ~~move type classes to model package and add some package for classes that are no implementation and no model~~
 * add example code snippets
 * add deployment to github in pom.xml (or deployment via buildhive)
