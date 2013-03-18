@@ -4,24 +4,24 @@ import java.util.List;
 
 public class Influence {
 
-    private List<InnerItem> myInfluencers;
-    private List<InnerItem> myInfluencees;
+    private List<InfluenceItem> myInfluencers;
+    private List<InfluenceItem> myInfluencees;
     private int myInfluencersCount;
     private int myInfluenceesCount;
 
-    public List<InnerItem> getMyInfluencers() {
+    public List<InfluenceItem> getMyInfluencers() {
         return myInfluencers;
     }
 
-    public void setMyInfluencers(List<InnerItem> myInfluencers) {
+    public void setMyInfluencers(List<InfluenceItem> myInfluencers) {
         this.myInfluencers = myInfluencers;
     }
 
-    public List<InnerItem> getMyInfluencees() {
+    public List<InfluenceItem> getMyInfluencees() {
         return myInfluencees;
     }
 
-    public void setMyInfluencees(List<InnerItem> myInfluencees) {
+    public void setMyInfluencees(List<InfluenceItem> myInfluencees) {
         this.myInfluencees = myInfluencees;
     }
 

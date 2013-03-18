@@ -5,7 +5,7 @@
 package jKlout2;
 
 import jKlout2.model.Influence;
-import jKlout2.model.InnerItem;
+import jKlout2.model.InfluenceItem;
 import jKlout2.model.Score;
 import jKlout2.model.Topic;
 import jKlout2.model.User;
@@ -105,21 +105,21 @@ public class TestKlout {
         Assert.assertEquals(15, testScore.getMyInfluencersCount());
         Assert.assertEquals(25, testScore.getMyInfluenceesCount());
         
-        List<InnerItem> influencers = testScore.getMyInfluencers();
+        List<InfluenceItem> influencers = testScore.getMyInfluencers();
         
-        Assert.assertEquals("100768049884337217", influencers.get(0).getEntity().getId());
-        Assert.assertEquals("37436176667751638", influencers.get(1).getEntity().getId());
-        Assert.assertEquals("41939776295123042", influencers.get(2).getEntity().getId());
-        Assert.assertEquals("902675", influencers.get(3).getEntity().getId());
-        Assert.assertEquals("879345", influencers.get(4).getEntity().getId());
+        Assert.assertEquals("100768049884337217", influencers.get(0).getId());
+        Assert.assertEquals("37436176667751638", influencers.get(1).getId());
+        Assert.assertEquals("41939776295123042", influencers.get(2).getId());
+        Assert.assertEquals("902675", influencers.get(3).getId());
+        Assert.assertEquals("879345", influencers.get(4).getId());
         
-        List<InnerItem> influencees = testScore.getMyInfluencees();
+        List<InfluenceItem> influencees = testScore.getMyInfluencees();
         
-        Assert.assertEquals("120189822723669433", influencees.get(0).getEntity().getId());
-        Assert.assertEquals("34058476947791600", influencees.get(1).getEntity().getId());
-        Assert.assertEquals("41095351365245784", influencees.get(2).getEntity().getId());
-        Assert.assertEquals("34621426900933220", influencees.get(3).getEntity().getId());
-        Assert.assertEquals("33495526993436298", influencees.get(4).getEntity().getId());
+        Assert.assertEquals("120189822723669433", influencees.get(0).getId());
+        Assert.assertEquals("34058476947791600", influencees.get(1).getId());
+        Assert.assertEquals("41095351365245784", influencees.get(2).getId());
+        Assert.assertEquals("34621426900933220", influencees.get(3).getId());
+        Assert.assertEquals("33495526993436298", influencees.get(4).getId());
 
         // TODO more assertions
     }

@@ -24,7 +24,7 @@ Roadmap
 * ~~add unittests (incl. property file for the klout id)~~
 * ~~remove code duplications and move the http connection code to some class~~
 * ~~add mocking to unittests~~
-* clean up the type classes (innerEntity is not nice and rather useless)
+* ~~clean up the type classes (innerEntity is not nice and rather useless)~~
 * ~~move type classes to model package and add some package for classes that are no implementation and no model~~
 * add example code snippets
 * add deployment to github in pom.xml (or deployment via buildhive)

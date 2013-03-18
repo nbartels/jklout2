@@ -2,14 +2,15 @@ package jKlout2;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import jKlout2.model.Identity;
 import jKlout2.model.Influence;
+import java.util.List;
 import jKlout2.model.KloutError;
 import jKlout2.types.KloutNetwork;
 import jKlout2.model.Score;
@@ -20,21 +21,18 @@ class KloutImpl implements Klout {
 
     private static final String KLOUT_BASE_URL = "http://api.klout.com/v2/";
     private String kloutApiKey;
-
     private static final String IDENTITY = "identity.json";
     private static final String USER = "user.json";
-    
     private static final String INFORMATION_INFLUENCE = "influence";
     private static final String INFORMATION_TOPICS = "topics";
     private static final String INFORMATION_SCORE = "score";
     private static Gson gson;
     private final HttpConnector connector;
-    
 
     KloutImpl(String apiKey, HttpConnector connector) {
         this.kloutApiKey = apiKey;
         this.connector = connector;
-        this.gson = new Gson();
+        this.gson = new GsonBuilder().registerTypeAdapter(List.class, new InfluenceItemListDeserializer()).create();
     }
 
     @Override
@@ -116,7 +114,7 @@ class KloutImpl implements Klout {
 
     public Identity getIdentityFromTwitterID(String twitterId) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/" + KloutNetwork.TWITTER.getShortName() +"/" + twitterId + "?key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.TWITTER.getShortName() + "/" + twitterId + "?key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();
@@ -164,7 +162,7 @@ class KloutImpl implements Klout {
 
     public Identity getIdentityFromKloutID(String kloutID, KloutNetwork targetNetwork) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() +"/" + kloutID + "/" + targetNetwork.getShortName() + "?key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() + "/" + kloutID + "/" + targetNetwork.getShortName() + "?key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();
