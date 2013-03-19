@@ -17,6 +17,18 @@ Dependencies
  * [gson library](https://code.google.com/p/google-gson/) to parse the json and generated POJOs
  * junit4 and [mockito](https://code.google.com/p/mockito/) for unittesting (not needed in productive environment)
 
+Code examples
+-------------
+Using the Klout API v2 Java Wrapper is rather easy. Of course you need the API Key. 
+
+```java
+
+String apiKey = "<apikey>";
+Klout kloutClient = new KloutFaactory().setKloutAPIkey(apiKey).build();
+
+```
+
+
 Roadmap
 -------
 
