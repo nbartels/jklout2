@@ -24,10 +24,10 @@ Using the Klout API v2 Java Wrapper is rather easy. Of course you need the API K
 ```java
 
 String apiKey = "<apikey>";
-Klout kloutClient = new KloutFaactory().setKloutAPIkey(apiKey).build();
-
+Klout kloutClient = new KloutFactory().setKloutAPIkey(apiKey).build();
 ```
 
+Now we have a instance of the Klout object and can work with it. Have a look at the interface.
 
 Roadmap
 -------
