@@ -31,7 +31,6 @@ Now we have a instance of the Klout object and can work with it. Have a look at 
 
 Roadmap
 -------
-
 * ~~add the mapping api (twitter, google plus to kloutid)~~
 * ~~add unittests (incl. property file for the klout id)~~
 * ~~remove code duplications and move the http connection code to some class~~
@@ -40,3 +39,4 @@ Roadmap
 * ~~move type classes to model package and add some package for classes that are no implementation and no model~~
 * add example code snippets
 * add deployment to github in pom.xml (or deployment via buildhive)
+* add some reporting to the pom.xml (coverage, pmd, ...)
