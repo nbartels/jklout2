@@ -1,0 +1,4 @@
+{
+    "error": 403,
+    "description": "Invalid or unprovided API key. All calls must have a key."
+}
