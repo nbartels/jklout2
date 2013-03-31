@@ -9,15 +9,7 @@ public class KloutError {
         return error;
     }
 
-    public void setError(int error) {
-        this.error = error;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

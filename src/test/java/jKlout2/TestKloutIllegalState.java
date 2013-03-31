@@ -5,18 +5,15 @@
 package jKlout2;
 
 import java.io.IOException;
-import java.io.InputStream;
-import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class TestKloutIllegalState {
+public class TestKloutIllegalState extends BaseTestKlout {
 
     @Test(expected = KloutException.class)
     public void testUserKloutExceptionByIllegalStateException() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/error.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("error.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -30,8 +27,7 @@ public class TestKloutIllegalState {
     @Test(expected = KloutException.class)
     public void testUserScoreKloutExceptionByIllegalStateException() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/error.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("error.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -45,9 +41,8 @@ public class TestKloutIllegalState {
     @Test(expected = KloutException.class)
     public void testTopicsKloutExceptionByIllegalStateException() throws IOException, KloutException {
         // load json file into string
-       InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/error.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
-        
+        String myJson = getJsonResAsString("error.json");
+       
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
         Mockito.when(connector.getContent()).thenThrow(new IllegalStateException(myJson));
@@ -59,9 +54,8 @@ public class TestKloutIllegalState {
     
     @Test(expected = KloutException.class)
     public void testInfluenceKloutExceptionByIllegalStateException() throws IOException, KloutException {
-         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/error.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        // load json file into string
+        String myJson = getJsonResAsString("error.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);

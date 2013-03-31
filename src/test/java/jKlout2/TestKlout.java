@@ -10,22 +10,19 @@ import jKlout2.model.Score;
 import jKlout2.model.Topic;
 import jKlout2.model.User;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class TestKlout {
+public class TestKlout extends BaseTestKlout {
     
     private static final double DELTA = 1e-15;
 
     @Test
     public void testUser() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/showUser.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("showUser.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -49,8 +46,7 @@ public class TestKlout {
     @Test
     public void testUserScore() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/score.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("score.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -63,6 +59,7 @@ public class TestKlout {
         // begin with assertions
         Assert.assertEquals(92.8064108888354, testScore.getScore(), DELTA);
         Assert.assertNotNull(testScore.getScoreDelta());
+        Assert.assertEquals("90-100", testScore.getBucket());
         Assert.assertEquals(0.11171073367142981D, testScore.getScoreDelta().getDayChange(), DELTA);
         Assert.assertEquals(0.19782863190633293D, testScore.getScoreDelta().getMonthChange(), DELTA);
         Assert.assertEquals(0.07298920976049317D, testScore.getScoreDelta().getWeekChange(), DELTA);
@@ -71,8 +68,7 @@ public class TestKlout {
     @Test
     public void testTopics() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/topics.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("topics.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -84,14 +80,18 @@ public class TestKlout {
         
         // begin with assertions
         Assert.assertEquals(5, topicList.size());
-        // TODO: add more assertions
+        Assert.assertEquals("5241585099662481339", topicList.get(0).getId());
+        Assert.assertEquals("Music", topicList.get(0).getDisplayName());
+        Assert.assertEquals("http://kcdn3.klout.com/static/images/music-1333561300502.png", topicList.get(0).getImageUrl());
+        Assert.assertEquals("Music", topicList.get(0).getName());
+        Assert.assertEquals("music", topicList.get(0).getSlug());
+        Assert.assertEquals("sub", topicList.get(0).getTopicType());
     }
     
     @Test
     public void testInfluence() throws IOException, KloutException {
          // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/influence.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("influence.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -108,18 +108,28 @@ public class TestKlout {
         List<InfluenceItem> influencers = testScore.getMyInfluencers();
         
         Assert.assertEquals("100768049884337217", influencers.get(0).getId());
+        Assert.assertNotNull(influencers.get(0).getPayload());
         Assert.assertEquals("37436176667751638", influencers.get(1).getId());
+        Assert.assertNotNull(influencers.get(1).getPayload());
         Assert.assertEquals("41939776295123042", influencers.get(2).getId());
+        Assert.assertNotNull(influencers.get(2).getPayload());
         Assert.assertEquals("902675", influencers.get(3).getId());
+        Assert.assertNotNull(influencers.get(3).getPayload());
         Assert.assertEquals("879345", influencers.get(4).getId());
+        Assert.assertNotNull(influencers.get(4).getPayload());
         
         List<InfluenceItem> influencees = testScore.getMyInfluencees();
         
         Assert.assertEquals("120189822723669433", influencees.get(0).getId());
+        Assert.assertNotNull(influencees.get(0).getPayload());
         Assert.assertEquals("34058476947791600", influencees.get(1).getId());
+        Assert.assertNotNull(influencees.get(1).getPayload());
         Assert.assertEquals("41095351365245784", influencees.get(2).getId());
+        Assert.assertNotNull(influencees.get(2).getPayload());
         Assert.assertEquals("34621426900933220", influencees.get(3).getId());
+        Assert.assertNotNull(influencees.get(3).getPayload());
         Assert.assertEquals("33495526993436298", influencees.get(4).getId());
+        Assert.assertNotNull(influencees.get(4).getPayload());
 
         // TODO more assertions
     }

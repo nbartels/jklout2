@@ -49,7 +49,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 
@@ -67,7 +67,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 
@@ -89,7 +89,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
         return topicList;
     }
@@ -108,7 +108,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 
@@ -124,7 +124,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 
@@ -140,7 +140,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 
@@ -156,7 +156,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 
@@ -172,7 +172,7 @@ class KloutImpl implements Klout {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
-            throw new KloutException(e.getDescription());
+            throw new KloutException(e.getError() + ": " + e.getDescription());
         }
     }
 }

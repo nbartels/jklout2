@@ -7,19 +7,16 @@ package jKlout2;
 import jKlout2.model.Identity;
 import jKlout2.types.KloutNetwork;
 import java.io.IOException;
-import java.io.InputStream;
-import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class TestKloutIdentity {
+public class TestKloutIdentity extends BaseTestKlout {
 
     @Test
     public void testTwitterID() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/identity_twitter.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("identity_twitter.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -37,8 +34,7 @@ public class TestKloutIdentity {
     @Test
     public void testTwitterScreenName() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/identity_twitter_screen.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("identity_twitter_screen.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -56,8 +52,7 @@ public class TestKloutIdentity {
     @Test
     public void testGooglePlusId() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/identity_googleplus.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("identity_googleplus.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);
@@ -75,8 +70,7 @@ public class TestKloutIdentity {
     @Test
     public void testKloutIdTwitter() throws IOException, KloutException {
         // load json file into string
-        InputStream is = getClass().getClassLoader().getResourceAsStream("jKlout2/identity_klout_tw.json");
-        String myJson = IOUtils.toString(is, "UTF-8");
+        String myJson = getJsonResAsString("identity_klout_tw.json");
         
         // HttpConnector mock
         HttpConnector connector = Mockito.mock(HttpConnector.class);

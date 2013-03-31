@@ -9,15 +9,15 @@ public class Identity {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getNetwork() {
         return network;
     }
 
-    public void setNetwork(String network) {
-        this.network = network;
-    }
+//    public void setNetwork(String network) {
+//        this.network = network;
+//    }
 }

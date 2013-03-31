@@ -7,8 +7,4 @@ public class Score extends SimpleScore {
     public ScoreDelta getScoreDelta() {
         return scoreDelta;
     }
-
-    public void setScoreDelta(ScoreDelta scoreDelta) {
-        this.scoreDelta = scoreDelta;
-    }
 }
