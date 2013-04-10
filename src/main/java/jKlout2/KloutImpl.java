@@ -19,6 +19,7 @@ import jKlout2.model.User;
 
 class KloutImpl implements Klout {
 
+    // base klout url
     private static final String KLOUT_BASE_URL = "http://api.klout.com/v2/";
     private String kloutApiKey;
     private static final String IDENTITY = "identity.json";
@@ -29,12 +30,24 @@ class KloutImpl implements Klout {
     private static Gson gson;
     private final HttpConnector connector;
 
+    /**
+     * constructor for a Klout-object.
+     *
+     * the constructor is package private, so the factory can only generate a
+     * klout-object
+     *
+     * @param apiKey
+     * @param connector
+     */
     KloutImpl(String apiKey, HttpConnector connector) {
         this.kloutApiKey = apiKey;
         this.connector = connector;
         this.gson = new GsonBuilder().registerTypeAdapter(List.class, new InfluenceItemListDeserializer()).create();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Score getUserScore(String userId) throws KloutException {
         String url = KLOUT_BASE_URL;
@@ -53,6 +66,9 @@ class KloutImpl implements Klout {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User getUser(String userId) throws KloutException {
         String url = KLOUT_BASE_URL;
@@ -71,6 +87,9 @@ class KloutImpl implements Klout {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Topic> getTopics(String userId) throws KloutException {
         String url = KLOUT_BASE_URL;
@@ -94,6 +113,9 @@ class KloutImpl implements Klout {
         return topicList;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Influence getInfluence(String userId) throws KloutException {
         String url = KLOUT_BASE_URL;
@@ -112,6 +134,10 @@ class KloutImpl implements Klout {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Identity getIdentityFromTwitterID(String twitterId) throws KloutException {
         String url = KLOUT_BASE_URL;
         url += IDENTITY + "/" + KloutNetwork.TWITTER.getShortName() + "/" + twitterId + "?key=" + this.kloutApiKey;
@@ -128,6 +154,10 @@ class KloutImpl implements Klout {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Identity getIdentityFromGooglePlusID(String googlePlusId) throws KloutException {
         String url = KLOUT_BASE_URL;
         url += IDENTITY + "/" + KloutNetwork.GOOGLE_PLUS.getShortName() + "/" + googlePlusId + "?key=" + this.kloutApiKey;
@@ -144,6 +174,10 @@ class KloutImpl implements Klout {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Identity getIdentityFromTwitterScreenName(String screenName) throws KloutException {
         String url = KLOUT_BASE_URL;
         url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() + "?screenName=" + screenName + "&key=" + this.kloutApiKey;
@@ -160,6 +194,10 @@ class KloutImpl implements Klout {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Identity getIdentityFromKloutID(String kloutID, KloutNetwork targetNetwork) throws KloutException {
         String url = KLOUT_BASE_URL;
         url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() + "/" + kloutID + "/" + targetNetwork.getShortName() + "?key=" + this.kloutApiKey;

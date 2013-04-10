@@ -1,5 +1,9 @@
 package jKlout2.types;
 
+/**
+ * enumeration to encapsulate the long and short name,
+ * that are used on the klout network
+ */
 public enum KloutNetwork {
     TWITTER("tw", "twitter"), KLOUT("kw","klout"), GOOGLE_PLUS("gp","googleplus");
     

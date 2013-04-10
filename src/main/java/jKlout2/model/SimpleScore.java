@@ -2,14 +2,14 @@ package jKlout2.model;
 
 public class SimpleScore {
 
-	private double score; 
-	private String bucket;
-	
-	public double getScore() {
-		return score;
-	}
+    private double score;
+    private String bucket;
 
-	public String getBucket() {
-		return bucket;
-	}	
+    public double getScore() {
+        return score;
+    }
+
+    public String getBucket() {
+        return bucket;
+    }
 }

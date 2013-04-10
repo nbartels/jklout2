@@ -11,31 +11,15 @@ public class User {
         return kloutId;
     }
 
-//    public void setKloutId(String kloutId) {
-//        this.kloutId = kloutId;
-//    }
-
     public String getNick() {
         return nick;
     }
-
-//    public void setNick(String nick) {
-//        this.nick = nick;
-//    }
 
     public SimpleScore getScore() {
         return score;
     }
 
-//    public void setScore(SimpleScore score) {
-//        this.score = score;
-//    }
-
     public ScoreDelta getScoreDeltas() {
         return scoreDeltas;
     }
-
-//    public void setScoreDeltas(ScoreDelta scoreDeltas) {
-//        this.scoreDeltas = scoreDeltas;
-//    }
 }
