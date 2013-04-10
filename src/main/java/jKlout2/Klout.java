@@ -24,7 +24,7 @@ public interface Klout {
      * @throws KloutException twitter id cannot be found at klout service, or
      * service down ...
      */
-    public Identity getIdentityFromTwitterID(String twitterId) throws KloutException;
+    Identity getIdentityFromTwitterID(String twitterId) throws KloutException;
 
     /**
      * mapping from google plus id to the klout id.
@@ -37,7 +37,7 @@ public interface Klout {
      * @see Identity} object to the given google plus id
      * @throws KloutException
      */
-    public Identity getIdentityFromGooglePlusID(String googlePlusId) throws KloutException;
+    Identity getIdentityFromGooglePlusID(String googlePlusId) throws KloutException;
 
     /**
      * mapping from twitter screen name to the klout id.
@@ -52,7 +52,7 @@ public interface Klout {
      * @see Identity} object to the given twitter screen name
      * @throws KloutException
      */
-    public Identity getIdentityFromTwitterScreenName(String screenName) throws KloutException;
+    Identity getIdentityFromTwitterScreenName(String screenName) throws KloutException;
 
     /**
      * mapping from klout id to the network id, the target network needs to be
@@ -67,7 +67,7 @@ public interface Klout {
      * @see Identity} object to the given klout id
      * @throws KloutException
      */
-    public Identity getIdentityFromKloutID(String kloutID, KloutNetwork targetNetwork) throws KloutException;
+    Identity getIdentityFromKloutID(String kloutID, KloutNetwork targetNetwork) throws KloutException;
 
     /**
      * request a {@see Score} object to the given klout user id.
@@ -77,7 +77,7 @@ public interface Klout {
      * @throws KloutException if klout user id cannot be found, network down or
      * something else
      */
-    public Score getUserScore(String userId) throws KloutException;
+    Score getUserScore(String userId) throws KloutException;
 
     /**
      * requests a {@see User} object with the given klout user id from the Klout Service.
@@ -88,7 +88,7 @@ public interface Klout {
      * @throws KloutException if user id cannot be found, network is down or
      * something else
      */
-    public User getUser(String userId) throws KloutException;
+    User getUser(String userId) throws KloutException;
 
     /**
      * requests the list of topics that the user with the klout id talks about
@@ -98,7 +98,7 @@ public interface Klout {
      * @return a list of topics to the given klout id
      * @throws KloutException
      */
-    public List<Topic> getTopics(String userId) throws KloutException;
+    List<Topic> getTopics(String userId) throws KloutException;
 
     /**
      * requests the influencers and influencees of the given klout id if you
@@ -110,5 +110,5 @@ public interface Klout {
      * @see Influence} object to the given klout id
      * @throws KloutException
      */
-    public Influence getInfluence(String userId) throws KloutException;
+    Influence getInfluence(String userId) throws KloutException;
 }
