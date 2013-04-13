@@ -3,7 +3,7 @@
 
     <groupId>de.phpmonkeys</groupId>
     <artifactId>jKlout2</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>jKlout2</name>
@@ -27,7 +27,8 @@
 	<connection>scm:git:git@github.com:nbartels/jklout2.git</connection>
 	<url>scm:git:git@github.com:nbartels/jklout2.git</url>
 	<developerConnection>scm:git:git@github.com:nbartels/jklout2.git</developerConnection>
-    </scm>
+      <tag>jKlout2-1.0</tag>
+  </scm>
         
     <dependencies>
         <dependency>
