@@ -10,7 +10,7 @@ Build status
 Functionality
 -------------
 * id mapping between klout id and twitter or google plus is supported
-* influence, topics and score can be retrieved
+* influence (incl influencers and influencees), topics and score can be retrieved
 
 Dependencies
 ------------
@@ -37,6 +37,6 @@ Roadmap
 * ~~add mocking to unittests~~
 * ~~clean up the type classes (innerEntity is not nice and rather useless)~~
 * ~~move type classes to model package and add some package for classes that are no implementation and no model~~
+* ~~add deployment to github in pom.xml (or deployment via buildhive)~~
+* ~~add some reporting to the pom.xml (coverage, pmd, ...)~~
 * add example code snippets
-* ~~add deployment to github in pom.xml (or deployment via buildhive)
-* ~~add some reporting to the pom.xml (coverage, pmd, ...)
