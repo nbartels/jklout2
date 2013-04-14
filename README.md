@@ -9,13 +9,13 @@ Build status
 
 Functionality
 -------------
-* id mapping is supported
+* id mapping between klout id and twitter or google plus is supported
 * influence, topics and score can be retrieved
 
 Dependencies
 ------------
  * [gson library](https://code.google.com/p/google-gson/) to parse the json and generated POJOs
- * junit4 and [mockito](https://code.google.com/p/mockito/) for unittesting (not needed in productive environment)
+ * junit4, [mockito](https://code.google.com/p/mockito/) and [Apache commons-io](http://commons.apache.org/proper/commons-io/) for unittesting (not needed in productive environment)
 
 Code examples
 -------------
@@ -38,5 +38,5 @@ Roadmap
 * ~~clean up the type classes (innerEntity is not nice and rather useless)~~
 * ~~move type classes to model package and add some package for classes that are no implementation and no model~~
 * add example code snippets
-* add deployment to github in pom.xml (or deployment via buildhive)
-* add some reporting to the pom.xml (coverage, pmd, ...)
+* ~~add deployment to github in pom.xml (or deployment via buildhive)
+* ~~add some reporting to the pom.xml (coverage, pmd, ...)
