@@ -129,6 +129,7 @@ class KloutImpl implements Klout {
         } catch (IOException ex) {
             throw new KloutException("something went wrong with the connection");
         } catch (IllegalStateException ex) {
+
             KloutError e = gson.fromJson(ex.getMessage(), KloutError.class);
             throw new KloutException(e.getError() + ": " + e.getDescription());
         }
@@ -180,7 +181,7 @@ class KloutImpl implements Klout {
     @Override
     public Identity getIdentityFromTwitterScreenName(String screenName) throws KloutException {
         String url = KLOUT_BASE_URL;
-        url += IDENTITY + "/" + KloutNetwork.KLOUT.getLongName() + "?screenName=" + screenName + "&key=" + this.kloutApiKey;
+        url += IDENTITY + "/" + KloutNetwork.TWITTER.getLongName() + "?screenName=" + screenName + "&key=" + this.kloutApiKey;
         try {
             connector.setURL(url);
             String json = connector.getContent();

@@ -14,7 +14,7 @@ class HttpConnector {
 
     HttpConnector() {
     }
-    
+
     public void setURL(String url) {
         this.url = url;
     }
@@ -29,10 +29,14 @@ class HttpConnector {
         } else {
             BufferedReader buff = new BufferedReader(new InputStreamReader(
                     con.getErrorStream(), Charset.forName("UTF-8")));
-            throw new IllegalStateException(readAll(buff));
+            if (con.getContentType().contains("json")) {
+                throw new IllegalStateException(readAll(buff));
+            } else {
+                throw new IOException(readAll(buff));
+            }
         }
     }
-    
+
     private String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
