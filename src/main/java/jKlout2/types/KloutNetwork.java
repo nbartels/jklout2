@@ -9,6 +9,7 @@ public enum KloutNetwork {
     TWITTER("tw", "twitter"), // Twitter network
     KLOUT("kw","klout"), // Klout network
     GOOGLE_PLUS("gp","googleplus"), // Google Plus network
+    INSTAGRAM("ig","instagram"),
     UNKNOWN("","");
     
     // network short name

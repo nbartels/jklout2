@@ -53,6 +53,14 @@ public interface Klout {
      * @throws KloutException
      */
     Identity getIdentityFromTwitterScreenName(String screenName) throws KloutException;
+    
+    /**
+     * mapping from instagram id to the klout id
+     * @param instagramId
+     * @return a identity object
+     * @throws KloutException 
+     */
+    Identity getIdentityFromInstagramId(String instagramId) throws KloutException;
 
     /**
      * mapping from klout id to the network id, the target network needs to be

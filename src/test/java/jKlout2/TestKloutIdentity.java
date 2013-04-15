@@ -84,4 +84,22 @@ public class TestKloutIdentity extends BaseTestKlout {
         Assert.assertEquals("26565946", testIdentity.getId());
         Assert.assertEquals("tw", testIdentity.getNetwork());
     }
+    
+    @Test
+    public void testKloutIdInstagram() throws IOException, KloutException {
+        // load json file into string
+        String myJson = getJsonResAsString("identity_instagram.json");
+        
+        // HttpConnector mock
+        HttpConnector connector = Mockito.mock(HttpConnector.class);
+        Mockito.when(connector.getContent()).thenReturn(myJson);
+        
+        KloutFactory factory = new KloutFactory();
+        Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
+        Identity testIdentity = kloutClient.getIdentityFromInstagramId("anyid");
+        
+        // begin with assertions
+        Assert.assertEquals("68495", testIdentity.getId());
+        Assert.assertEquals("ks", testIdentity.getNetwork());
+    }
 }

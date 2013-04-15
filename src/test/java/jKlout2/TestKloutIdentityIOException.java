@@ -54,4 +54,15 @@ public class TestKloutIdentityIOException {
         Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
         kloutClient.getIdentityFromKloutID("anyid", KloutNetwork.TWITTER);
     }
+    
+    @Test(expected = KloutException.class)
+    public void testKloutIdInstagramioException() throws IOException, KloutException {
+        // HttpConnector mock
+        HttpConnector connector = Mockito.mock(HttpConnector.class);
+        Mockito.when(connector.getContent()).thenThrow(new IOException());
+        
+        KloutFactory factory = new KloutFactory();
+        Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
+        kloutClient.getIdentityFromInstagramId("anyid");
+    }
 }

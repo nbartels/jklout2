@@ -66,4 +66,18 @@ public class TestKloutIdentityIllegalState extends BaseTestKlout {
         Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
         kloutClient.getIdentityFromKloutID("anyid", KloutNetwork.TWITTER);
     }
+    
+    @Test(expected = KloutException.class)
+    public void testKloutIdInstagramillegalStateException() throws IOException, KloutException {
+        // load json file into string
+        String myJson = getJsonResAsString("error.json");
+        
+        // HttpConnector mock
+        HttpConnector connector = Mockito.mock(HttpConnector.class);
+        Mockito.when(connector.getContent()).thenThrow(new IllegalStateException(myJson));
+        
+        KloutFactory factory = new KloutFactory();
+        Klout kloutClient = factory.setKloutAPIkey("example").setHttpConnector(connector).build();
+        kloutClient.getIdentityFromInstagramId("anyid");
+    }
 }
