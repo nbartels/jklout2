@@ -28,7 +28,7 @@ public class TestKloutIdentity extends BaseTestKlout {
         
         // begin with assertions
         Assert.assertEquals("54887627490056592", testIdentity.getId());
-        Assert.assertEquals("ks", testIdentity.getNetwork());
+        Assert.assertEquals(KloutNetwork.KLOUT, testIdentity.getNetwork());
     }
     
     @Test
@@ -46,7 +46,7 @@ public class TestKloutIdentity extends BaseTestKlout {
         
         // begin with assertions
         Assert.assertEquals("635263", testIdentity.getId());
-        Assert.assertEquals("ks", testIdentity.getNetwork());
+        Assert.assertEquals(KloutNetwork.KLOUT, testIdentity.getNetwork());
     }
     
     @Test
@@ -64,7 +64,7 @@ public class TestKloutIdentity extends BaseTestKlout {
         
         // begin with assertions
         Assert.assertEquals("103083", testIdentity.getId());
-        Assert.assertEquals("ks", testIdentity.getNetwork());
+        Assert.assertEquals(KloutNetwork.KLOUT, testIdentity.getNetwork());
     }
     
     @Test
@@ -82,7 +82,7 @@ public class TestKloutIdentity extends BaseTestKlout {
         
         // begin with assertions
         Assert.assertEquals("26565946", testIdentity.getId());
-        Assert.assertEquals("tw", testIdentity.getNetwork());
+        Assert.assertEquals(KloutNetwork.TWITTER, testIdentity.getNetwork());
     }
     
     @Test
@@ -100,6 +100,6 @@ public class TestKloutIdentity extends BaseTestKlout {
         
         // begin with assertions
         Assert.assertEquals("68495", testIdentity.getId());
-        Assert.assertEquals("ks", testIdentity.getNetwork());
+        Assert.assertEquals(KloutNetwork.KLOUT, testIdentity.getNetwork());
     }
 }

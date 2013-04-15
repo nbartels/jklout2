@@ -1,9 +1,11 @@
 package jKlout2.model;
 
+import jKlout2.types.KloutNetwork;
+
 public class Identity {
 
     private String id;
-    private String network;
+    private KloutNetwork network;
 
     /**
      * get the user id
@@ -17,7 +19,7 @@ public class Identity {
      * get the network 
      * @return network
      */
-    public String getNetwork() {
+    public KloutNetwork getNetwork() {
         return network;
     }
 }

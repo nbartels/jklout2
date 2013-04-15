@@ -7,7 +7,7 @@ package jKlout2.types;
 public enum KloutNetwork {
     
     TWITTER("tw", "twitter"), // Twitter network
-    KLOUT("kw","klout"), // Klout network
+    KLOUT("ks","klout"), // Klout network
     GOOGLE_PLUS("gp","googleplus"), // Google Plus network
     INSTAGRAM("ig","instagram"),
     UNKNOWN("","");

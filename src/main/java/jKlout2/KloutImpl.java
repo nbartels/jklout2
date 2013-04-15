@@ -42,7 +42,10 @@ class KloutImpl implements Klout {
     KloutImpl(String apiKey, HttpConnector connector) {
         this.kloutApiKey = apiKey;
         this.connector = connector;
-        this.gson = new GsonBuilder().registerTypeAdapter(List.class, new InfluenceItemListDeserializer()).create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(List.class, new InfluenceItemListDeserializer());
+        gsonBuilder.registerTypeAdapter(KloutNetwork.class, new KloutNetworkDeserializer());
+        this.gson = gsonBuilder.create();
     }
 
     /**
