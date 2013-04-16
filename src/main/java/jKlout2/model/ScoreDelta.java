@@ -13,7 +13,7 @@ public class ScoreDelta {
     /**
      * get the day change of the users score
      *
-     * @return
+     * @return day change
      */
     public double getDayChange() {
         return dayChange;
@@ -22,7 +22,7 @@ public class ScoreDelta {
     /**
      * get the week change of the users score
      *
-     * @return
+     * @return week change
      */
     public double getWeekChange() {
         return weekChange;
@@ -31,7 +31,7 @@ public class ScoreDelta {
     /**
      * get the month change of the users score
      *
-     * @return
+     * @return month change
      */
     public double getMonthChange() {
         return monthChange;
