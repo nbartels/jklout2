@@ -24,6 +24,21 @@
         <url>https://buildhive.cloudbees.com/job/nbartels/job/jklout2/</url>
     </ciManagement>
     
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>sourceforge</id>
+            <name>Sourceforge Stable Files</name>
+            <url>sftp://frs.sourceforge.net:/home/frs/project/jklout2/stable</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>sourceforge</id>
+            <name>Sourceforge Snapshot Files</name>
+            <url>sftp://frs.sourceforge.net:/home/frs/project/jklout2/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
     <scm>
         <connection>scm:git:git@github.com:nbartels/jklout2.git</connection>
         <url>scm:git:git@github.com:nbartels/jklout2.git</url>
@@ -38,7 +53,7 @@
             <version>2.2.3</version>
             <scope>compile</scope>
         </dependency>
-       <!-- <dependency>
+        <!-- <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.5</version>
