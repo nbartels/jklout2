@@ -43,7 +43,7 @@ Get Influence-object from google plus id
 ```java
 
 Klout kloutClient;
-String kloutId = kloutClient.getIdentityFromGooglePlusID("103083").getId();
+String kloutId = kloutClient.getIdentityFromGooglePlusID("112620727907435773834").getId();
 Influence influence = kloutClient.getInfluence(kloutId);
 ```
 
