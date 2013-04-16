@@ -16,7 +16,8 @@ Dependencies
  * junit4, [mockito](https://code.google.com/p/mockito/) and [Apache commons-io](http://commons.apache.org/proper/commons-io/) for unittesting (not needed in productive environment)
 
 Code examples
--------------
+=============
+
 Using the Klout API v2 Java Wrapper is rather easy. Of course you need the API Key. 
 
 ```java
@@ -24,8 +25,27 @@ Using the Klout API v2 Java Wrapper is rather easy. Of course you need the API K
 String apiKey = "<apikey>";
 Klout kloutClient = new KloutFactory().setKloutAPIkey(apiKey).build();
 ```
+Now we have a instance of the Klout object and can work with it.
 
-Now we have a instance of the Klout object and can work with it. Have a look at the interface.
+Get User-object from twitter screen name
+----------------------------------------
+
+```java
+
+Klout kloutClient;
+String kloutId = kloutClient.getIdentityFromTwitterScreenName("jtimberlake").getId();
+User kloutUser = kloutClient.getUser(kloutId);
+```
+
+Get Influence-object from google plus id
+----------------------------------------
+
+```java
+
+Klout kloutClient;
+String kloutId = kloutClient.getIdentityFromGooglePlusID("103083").getId();
+Influence influence = kloutClient.getInfluence(kloutId);
+```
 
 
 Changelog and Roadmap
