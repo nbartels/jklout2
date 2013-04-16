@@ -24,10 +24,18 @@ public enum KloutNetwork {
         this.longName = longName;
     }
 
+    /**
+     * get the network short name
+     * @return 
+     */
     public String getShortName() {
         return shortName;
     }
 
+    /**
+     * get the network long name
+     * @return 
+     */
     public String getLongName() {
         return longName;
     }
