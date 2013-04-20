@@ -21,7 +21,7 @@ package jKlout2;
 public class KloutFactory {
 
     private String apiKey;
-    private HttpConnector connector = new HttpConnector();
+    private HttpConnector connector = new DefaultJavaHttpConnector();
 
     /**
      * set the Klout API key.
@@ -38,7 +38,6 @@ public class KloutFactory {
      * set the HttpConnector.
      * 
      * mostly used for testing 
-     * 
      * 
      * @param connector
      * @return KloutFactory
