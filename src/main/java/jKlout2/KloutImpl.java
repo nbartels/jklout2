@@ -19,10 +19,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import jKlout2.gson.KloutGsonBuilder;
 import jKlout2.model.Identity;
 import jKlout2.model.Influence;
 import java.util.List;
@@ -57,10 +57,7 @@ class KloutImpl implements Klout {
     KloutImpl(String apiKey, HttpConnector connector) {
         this.kloutApiKey = apiKey;
         this.connector = connector;
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(List.class, new InfluenceItemListDeserializer());
-        gsonBuilder.registerTypeAdapter(KloutNetwork.class, new KloutNetworkDeserializer());
-        this.gson = gsonBuilder.create();
+        this.gson = KloutGsonBuilder.create();
     }
 
     /**

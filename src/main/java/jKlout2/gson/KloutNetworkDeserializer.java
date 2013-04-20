@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jKlout2;
+package jKlout2.gson;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -22,7 +22,7 @@ import com.google.gson.JsonParseException;
 import jKlout2.types.KloutNetwork;
 import java.lang.reflect.Type;
 
-public class KloutNetworkDeserializer implements JsonDeserializer<KloutNetwork>{
+class KloutNetworkDeserializer implements JsonDeserializer<KloutNetwork>{
 
     public KloutNetwork deserialize(JsonElement json, Type type, JsonDeserializationContext jdc) throws JsonParseException {
         return KloutNetwork.getEnumFromShortName(json.getAsString());
