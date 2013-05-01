@@ -24,7 +24,7 @@ public enum KloutNetwork {
     TWITTER("tw", "twitter"), // Twitter network
     KLOUT("ks","klout"), // Klout network
     GOOGLE_PLUS("gp","googleplus"), // Google Plus network
-    INSTAGRAM("ig","instagram"),
+    INSTAGRAM("ig","instagram"), // Instagram network
     UNKNOWN("","");
     
     // network short name
@@ -55,6 +55,12 @@ public enum KloutNetwork {
         return longName;
     }
     
+    /**
+     * convert network shortname to the KloutNetwork enum,
+     * or UNKNOWN as fallback if the short name cannot be resolved
+     * @param shortName network shortname string
+     * @return kloutnetwork enum
+     */
     public static KloutNetwork getEnumFromShortName(String shortName) {
         for(KloutNetwork network: KloutNetwork.values()) {
             if (network.getShortName().equals(shortName)) {

@@ -23,6 +23,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+/**
+ * Http connector that uses a default java implementation
+ */
 class DefaultJavaHttpConnector implements HttpConnector {
 
     private String url;
@@ -30,11 +33,17 @@ class DefaultJavaHttpConnector implements HttpConnector {
     DefaultJavaHttpConnector() {
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public void setURL(String url) {
         this.url = url;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public String getContent() throws IOException, IllegalStateException {
         URL link = new URL(url);

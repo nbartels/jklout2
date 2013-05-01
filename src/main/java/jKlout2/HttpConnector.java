@@ -17,9 +17,23 @@ package jKlout2;
 
 import java.io.IOException;
 
+/**
+ * Connector interface for http connectors
+ * 
+ */
 interface HttpConnector {
 
+    /**
+     * set the url that is called to retrieve content
+     * @param url content url 
+     */
     public void setURL(String url);
 
+    /**
+     * retrieve the content from the url that had been set by <code>setURL</code>
+     * @return
+     * @throws IOException
+     * @throws IllegalStateException 
+     */
     public String getContent() throws IOException, IllegalStateException;
 }

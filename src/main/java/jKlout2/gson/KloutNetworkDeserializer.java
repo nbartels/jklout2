@@ -22,10 +22,14 @@ import com.google.gson.JsonParseException;
 import jKlout2.types.KloutNetwork;
 import java.lang.reflect.Type;
 
-class KloutNetworkDeserializer implements JsonDeserializer<KloutNetwork>{
+/**
+ * Deserializer to convert a network from String in json to the KloutNetwork
+ * enum
+ */
+class KloutNetworkDeserializer implements JsonDeserializer<KloutNetwork> {
 
     public KloutNetwork deserialize(JsonElement json, Type type, JsonDeserializationContext jdc) throws JsonParseException {
+        // use static method to do the conversion
         return KloutNetwork.getEnumFromShortName(json.getAsString());
     }
-    
 }

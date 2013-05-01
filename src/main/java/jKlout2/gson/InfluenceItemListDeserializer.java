@@ -25,6 +25,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Deserializer to convert the influence item json into a better java object
+ */
 class InfluenceItemListDeserializer implements JsonDeserializer<List<InfluenceItem>> {
 
     public List<InfluenceItem> deserialize(JsonElement je, Type type, JsonDeserializationContext jdc) throws JsonParseException {
